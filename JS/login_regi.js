@@ -54,7 +54,7 @@ function registerForm(e){
         To : emailid,
         From : "pritica@metapercept.com",
         Subject : "This is the subject",
-        Body :"" + "/?" + emailid
+        Body :"https://vedantika-ghadage.github.io/testWebsite/login_reg_page.html#login_page" + "/?" + emailid
     }).then(
         message => alert(message))
     } 
