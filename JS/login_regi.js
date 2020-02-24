@@ -195,6 +195,7 @@ $(document).ready(function(){
   });
 });
 
+
 $(document).ready(function(){
   $("#register").click(function(){
     $("#reg_form").show();
