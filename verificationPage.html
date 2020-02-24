@@ -27,13 +27,13 @@
        
 
 
-       // var str=window.location.href
-       // var resarr = str.split("?");
+        var str=window.location.href
+        var resarr = str.split("?");
 
-       //var res=resarr[1]
+       var res=resarr[1]
        //console.log(res);
 
-      var res="bofirip593@jetsmails.com"
+      //var res="bofirip593@jetsmails.com"
         var db = firebase.database();
         db.ref("messages").once("value", function(snap) {
        var value1=snap.val();
