@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Verification</title>
+</head>
+<body>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-analytics.js"></script>
+   
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyDCYDJzqPLo0I51CDQQj02PDIIxw_hW5po",
+        authDomain: "conatactform.firebaseapp.com",
+        databaseURL: "https://conatactform.firebaseio.com",
+        projectId: "conatactform",
+        storageBucket: "conatactform.appspot.com",
+        messagingSenderId: "230075649297",
+        appId: "1:230075649297:web:fbd89a94fdb8db2c9c10b0",
+        measurementId: "G-8JFYVG5LHX"
+      };
+      
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    function getURL() {
+
+       
+
+
+       // var str=window.location.href
+       // var resarr = str.split("?");
+
+       //var res=resarr[1]
+       //console.log(res);
+
+      var res="bofirip593@jetsmails.com"
+        var db = firebase.database();
+        db.ref("messages").once("value", function(snap) {
+       var value1=snap.val();
+       //console.log(value1)
+        var keyvalue=value1.key;
+        //var msgval=keyvalue.value;
+       // var child=keyvalue.child("messages")
+        //console.log(keyvalue)
+
+
+        var result=Object.keys(value1).map(function(key){
+          return Number(key),value1[key];
+        })
+
+       //console.log(result[1].getKey())
+       //console.log(result[21].key)
+        for(var i=0;i<result.length;i++)
+        {
+          //console.log(result[i].measurementId)
+          if(res==result[i].emailid){
+
+            var userkey;
+
+            // get  user id
+            var result1=Object.keys(value1).map(function(key,val){
+              //console.log(key);
+              var userdata = value1[key];
+              if(userdata.emailid == res)
+              {
+                console.log(key);
+                userkey = key;
+              }
+              //console.log(value1[key]);
+              return Number(key),value1[key];
+            });
+            //var keyelemant=result[i].getKey
+            //console.log(result[i])
+            if(result[i].verifired==false)
+            //console.log(res)
+            db.ref("messages/"+userkey).update({verifired:true});
+            console.log("find email")
+            break;
+          }
+          //console.log(result[i]);
+        }
+      }, function(err) {
+          console.log(err);
+      });
+    }
+    </script>
+     
+    <button type="button" onclick="getURL();">verification</button>
+
+
+</body>
+</html>
