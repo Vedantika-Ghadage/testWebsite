@@ -54,7 +54,7 @@ function registerForm(e){
         To : emailid,
         From : "pritica@metapercept.com",
         Subject : "This is the subject",
-        Body : <a href='verificationPage.html/? '+ 'emailid' target="_blank">test</a>
+        Body : "<a href='verificationPage.html/? '+ 'emailid' target='_blank'>test</a>"
     }).then(
         message => alert(message))
     } 
