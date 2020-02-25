@@ -50,11 +50,15 @@ function registerForm(e){
         Host: "smtp.elasticemail.com",
         Port: "2525",
         Username : "pritica@metapercept.com",
-        Password : "AA94DC76B4A50360F1F162747E3130A7E196",
+        Password : "C847858801A9EF735485FE7E4BE95B7CEC05",
         To : emailid,
         From : "pritica@metapercept.com",
         Subject : "This is the subject",
+<<<<<<< HEAD
         Body :"https://vedantika-ghadage.github.io/testWebsite/login_reg_page.html#login_page" + "/?" + emailid
+=======
+        Body : "<a href='https://vedantika-ghadage.github.io/testWebsite/verificationPage.html/? '+ 'emailid' target='_blank'>test</a>"
+>>>>>>> 682724dc1839df397dc53e1eb49c76f4416f487b
     }).then(
         message => alert(message))
     } 
@@ -194,6 +198,7 @@ $(document).ready(function(){
     }
   });
 });
+
 
 $(document).ready(function(){
   $("#register").click(function(){
