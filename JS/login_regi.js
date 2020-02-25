@@ -49,10 +49,10 @@ function registerForm(e){
       Email.send({
         Host: "smtp.elasticemail.com",
         Port: "2525",
-        Username : "vedantika@metapercept.com",
-        Password : "333080F8CC672CF4737764242A0E5053FA15",
+        Username : "pritica@metapercept.com",
+        Password : "F7A846141C0912321B85D8BDBADDD878D230",
         To : emailid,
-        From : "vedantika@metapercept.com",
+        From : "pritica@metapercept.com",
         Subject : "This is the subject",
         Body :"https://vedantika-ghadage.github.io/testWebsite/login_reg_page.html#login_page" + "/?" + emailid
     }).then(
