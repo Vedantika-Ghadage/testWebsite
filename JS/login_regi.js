@@ -200,9 +200,7 @@ function LoginForm(e){
     {
       alert("wrong password");
     }
-    else if(icnt3==0){
-      alert("user is not verified")
-    }
+
   }, function(err) {
       console.log(err);
 
