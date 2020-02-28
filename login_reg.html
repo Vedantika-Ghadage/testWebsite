@@ -208,6 +208,32 @@ display: block !important;
     }
 </script>
 
+<script>
+    data=sessionStorage.getItem("emailid")
+  $(document).ready(function(){
+
+      if(data==null){ 
+        $("#reg_form").hide();
+        $("#login_page").show(); 
+      }
+      else{
+        window.open("DASHBOARD.html")
+      }
+    
+      $("#register").click(function(){
+        $("#reg_form").show();
+        $("#login_page").hide(); 
+      });
+
+      $("#already_reg").click(function(){
+        $("#reg_form").hide();
+        $("#login_page").show(); 
+      });
+
+
+  });
+  </script>
+
 </head>
 <body>
     <!--Navigation Bar-->
@@ -313,6 +339,7 @@ display: block !important;
         </div>
     </div>
         <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-analytics.js"></script>
       
         <script src="JS/login_regi.js"></script>

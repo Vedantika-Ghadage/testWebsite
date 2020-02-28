@@ -46,7 +46,25 @@ function registerForm(e){
     if (found.length==0) {
       console.log('reg new user')
       saveMessage(name, emailid, password, cpassword,verifired)
-      Email.send({
+
+      const auth=firebase.auth()
+
+      const promise = auth.createUserWithEmailAndPassword(emailid,password);
+      promise.catch(e=>console.log(e.message));
+      promise.then(e=>(
+        
+        firebase.auth().currentUser.sendEmailVerification().then(function() {
+          alert("verification send")
+        }).catch(function(error) {
+          alert("Error "+error.message);
+        })
+        .then(function(){
+          
+          console.log("send mail succesfuly")
+        })
+        ));
+
+      /*Email.send({
         Host: "smtp.elasticemail.com",
         Port: "2525",
         Username : "patriciaaruldas@gmail.com",
@@ -56,7 +74,7 @@ function registerForm(e){
         Subject : "This is the subject",
         Body :"https://vedantika-ghadage.github.io/testWebsite/login_reg_page.html#login_page" + "/?" + emailid
     }).then(
-        message => alert(message))
+        message => alert(message))*/
     } 
     else {
       alert("emailid is already exist")
@@ -153,16 +171,26 @@ function LoginForm(e){
         icnt1=1;
         if(txtPassword==result[i].password){
           icnt2=1;
-          if(result[i].verifired==true){
-            icnt3=1;
+          const auth=firebase.auth()
+            
+       
+          const promise = auth.signInWithEmailAndPassword(txtEmail,txtPassword);
+          promise.catch(e=>alert(e.message));
+          promise.then(function(){
+              if(firebase.auth().currentUser.emailVerification==true){
+              window.location("DASHBOARD.html");
+              break;
+            }
+          })
           sessionStorage.setItem("emailid",txtEmail);
-          window.open("DASHBOARD.html")
-          break;
+          // sessionStorage.setItem("emailid",txtEmail);
+          // window.open("DASHBOARD.html")
+          // break;
         }
         }
       }
       //console.log(result[i]);
-    }
+    
 
     if(icnt1==0)
     {
@@ -182,25 +210,25 @@ function LoginForm(e){
 }
 
 
-data=sessionStorage.getItem("emailid")
-$(document).ready(function(){
-  $("#already_reg").click(function(){
-    if(data==null){ 
-      $("#reg_form").hide();
-      $("#login_page").show(); 
-    }
-    else{
-      window.open("DASHBOARD.html")
-    }
-  });
-});
+// data=sessionStorage.getItem("emailid")
+// $(document).ready(function(){
+//   $("#already_reg").click(function(){
+//     if(data==null){ 
+//       $("#reg_form").hide();
+//       $("#login_page").show(); 
+//     }
+//     else{
+//       window.open("DASHBOARD.html")
+//     }
+//   });
+// });
 
 
-$(document).ready(function(){
-  $("#register").click(function(){
-    $("#reg_form").show();
-    $("#login_page").hide(); 
-  });
-  });
+// $(document).ready(function(){
+//   $("#register").click(function(){
+//     $("#reg_form").show();
+//     $("#login_page").hide(); 
+//   });
+//   });
 
 
