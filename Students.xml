@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="Student.xsl"?>
+
+<student>
+    <s>
+       <name>Sifa Tandel</name>
+       <branch>IT</branch>
+       <age>22 years</age>
+       <city>Pune</city>
+    </s>
+
+    <s>
+       <name>Alfiya Shaikh</name>
+       <branch>Education</branch>
+       <age>21 years</age>
+       <city>Pune</city>
+    </s>
+
+    <s>
+       <name>Vedantika Ghadge</name>
+       <branch>IT-Mathematics</branch>
+       <age>23 years</age>
+       <city>Satara</city>
+    </s>
+
+    <s>
+       <name>Mahima Iyer</name>
+       <branch>Child Psychology</branch>
+       <age>23 years</age>
+       <city>Mumbai</city>
+    </s>
+
+    <s>
+       <name>Pritica Aruldas</name>
+       <branch>IT</branch>
+       <age>22 years</age>
+       <city>Pune</city>
+    </s>
+</student>
